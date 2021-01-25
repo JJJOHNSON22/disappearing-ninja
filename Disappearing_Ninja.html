@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disappearing Ninja</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        div img {
+            margin: 2%;
+            width: 20%;
+            height: 12%;
+            float: left;
+        }
+        
+        button {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="ninjas">
+        <h1>jQuery - Disappearing Ninja</h1>
+        <button id="restore">Restore</button>
+        <img id="ninja" src="dojocat.jpg" alt="">
+    </div>
+
+
+    <script>
+        var i;
+        var ninja = '<img id="ninja" src="dojocat.jpg" alt="">';
+        for (i = 0; i < 7; i++) {
+            $('#ninjas').append(ninja);
+        };
+        $(document).ready(function() {
+            $("div #ninja").click(function() {
+                $(this).hide(2000, function() {});
+            });
+            $("div #restore").click(function() {
+                $("div #ninja").css("display", "inline-block");
+            });
+        });
+    </script>
+
+</body>
+
+</html>
